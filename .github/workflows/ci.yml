@@ -23,7 +23,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                eslint: [6, 7, 8]
+                eslint: [8.57.0, 8]
         runs-on: ubuntu-latest
         steps:
             - name: ⬇️ Checkout repo
@@ -62,14 +62,11 @@ jobs:
                       eslint: 8
                       node: 18
                     # On old ESLint versions
-                    - eslint: 7
-                      node: 18
-                      os: ubuntu-latest
-                    - eslint: 6
+                    - eslint: 8.57.0
                       node: 18
                       os: ubuntu-latest
                     # On the minimum supported ESLint/Node.js version
-                    - eslint: 6.6.0
+                    - eslint: 8.57.0
                       node: 12.22.0
                       os: ubuntu-latest
         runs-on: ${{ matrix.os }}
