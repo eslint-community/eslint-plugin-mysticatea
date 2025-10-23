@@ -7,6 +7,29 @@ module.exports = {
         "plugin:@eslint-community/mysticatea/es2015",
         "plugin:@eslint-community/mysticatea/+eslint-plugin",
     ],
+    rules: {
+        "no-restricted-properties": [
+            "error",
+            {
+                object: "context",
+                property: "getDeclaredVariables",
+                message:
+                    "If you are using it in a test case, use test/test-lib/eslint-compat.mjs#getDeclaredVariables instead. Other than that, the API should also be compatible with ESLint v9.",
+            },
+            {
+                object: "context",
+                property: "getSourceCode",
+                message:
+                    "If you are using it in a test case, use test/test-lib/eslint-compat.mjs#getSourceCode instead. Other than that, the API should also be compatible with ESLint v9.",
+            },
+            {
+                object: "context",
+                property: "getScope",
+                message:
+                    "If you are using it in a test case, use test/test-lib/eslint-compat.mjs#getScope instead. Other than that, the API should also be compatible with ESLint v9.",
+            },
+        ],
+    },
     overrides: [
         {
             files: ["lib/utils.js", "scripts/*.js"],
